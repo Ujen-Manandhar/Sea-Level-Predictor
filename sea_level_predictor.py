@@ -23,7 +23,12 @@ def draw_plot():
     plt.scatter(df.Year, df['CSIRO Adjusted Sea Level'])
     plt.plot(predicted_df.Year, predicted_df['Estimated Adjusted Sea Level'], c='r')
 
+    # data from year 2000 
+    df_2000 = df[df.Year >= 2000]
 
+    # prediction
+    predicted_df_2000 = predicted_df[predicted_df.Year >= 2000]
+    
     # Create second line of best fit
 
 
