@@ -33,7 +33,7 @@ def draw_plot():
 
     # prediction
     predicted_df_2000 = predicted_df.loc[predicted_df.Year >= 2000]
-    predicted_df_2000['Estimated Adjusted Sea Level'] =predicted_df_2000.Year.apply(lambda x: slope*x+intercept)
+    predicted_df_2000.loc[:,'Estimated Adjusted Sea Level'] = predicted_df_2000.Year.apply(lambda x: slope*x+intercept)
 
     # Create second line of best fit
     plt.scatter(df_2000.Year, df_2000['CSIRO Adjusted Sea Level'])
