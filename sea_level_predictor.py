@@ -34,6 +34,9 @@ def draw_plot():
     plt.plot(predicted_df_2000.Year, predicted_df_2000['Estimated Adjusted Sea Level'], c='r')
 
     # Add labels and title
+    plt.xlabel('Years')
+    plt.ylabel('Sea Level (inches)')
+    plt.title('Rise in Sea Level')
     
     # Save plot and return data for testing (DO NOT MODIFY)
     plt.savefig('sea_level_plot.png')
