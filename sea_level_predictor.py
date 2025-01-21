@@ -5,7 +5,7 @@ from scipy.stats import linregress
 
 def draw_plot():
     # Read data from file
-    df = pd.read_csv('CSV_files/epa-sea-level.csv')
+    df = pd.read_csv('epa-sea-level.csv')
 
     # Create scatter plot
     plt.scatter(df.Year, df['CSIRO Adjusted Sea Level'])
@@ -21,7 +21,7 @@ def draw_plot():
 
     # Create first line of best fit till 2050
     plt.scatter(df.Year, df['CSIRO Adjusted Sea Level'])
-    plt.plot(predicted_df.Year, predicted_df['Estimated Adjusted Sea Level'], c='r')
+    plt.plot(predicted_df.Year, predicted_df['Estimated Adjusted Sea Level'])
 
     # data from year 2000 
     df_2000 = df[df.Year >= 2000]
@@ -31,13 +31,13 @@ def draw_plot():
 
     # Create second line of best fit
     plt.scatter(df_2000.Year, df_2000['CSIRO Adjusted Sea Level'])
-    plt.plot(predicted_df_2000.Year, predicted_df_2000['Estimated Adjusted Sea Level'], c='r')
+    plt.plot(predicted_df_2000.Year, predicted_df_2000['Estimated Adjusted Sea Level'])
 
     # Add labels and title
     plt.xlabel('Years')
     plt.ylabel('Sea Level (inches)')
     plt.title('Rise in Sea Level')
-    
+
     # Save plot and return data for testing (DO NOT MODIFY)
     plt.savefig('sea_level_plot.png')
     return plt.gca()
