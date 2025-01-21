@@ -19,8 +19,10 @@ def draw_plot():
     predicted_df = pd.DataFrame({'Year':np.arange(1880, 2051)})
     predicted_df['Estimated Adjusted Sea Level'] =predicted_df.Year.apply(lambda x: slope * x + intercept)
 
-    # Create first line of best fit
-    
+    # Create first line of best fit till 2050
+    plt.scatter(df.Year, df['CSIRO Adjusted Sea Level'])
+    plt.plot(predicted_df.Year, predicted_df['Estimated Adjusted Sea Level'], c='r')
+
 
     # Create second line of best fit
 
