@@ -26,8 +26,14 @@ def draw_plot():
     # data from year 2000 
     df_2000 = df[df.Year >= 2000]
 
+    # linear model for 2000
+    model = linregress(df_2000.Year, df_2000['CSIRO Adjusted Sea Level'])
+    slope = model.slope
+    intercept = model.intercept
+
     # prediction
     predicted_df_2000 = predicted_df[predicted_df.Year >= 2000]
+    predicted_df_2000['Estimated Adjusted Sea Level'] =predicted_df_2000.Year.apply(lambda x: slope*x+intercept)
 
     # Create second line of best fit
     plt.scatter(df_2000.Year, df_2000['CSIRO Adjusted Sea Level'])
