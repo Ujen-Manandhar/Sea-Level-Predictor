@@ -14,9 +14,13 @@ def draw_plot():
     model= linregress(x=df.Year, y=df['CSIRO Adjusted Sea Level'])
     slope = model.slope
     intercept= model.intercept
-    
-    # Create first line of best fit
 
+    # predicted dataframe
+    predicted_df = pd.DataFrame({'Year':np.arange(1880, 2051)})
+    predicted_df['Estimated Adjusted Sea Level'] =predicted_df.Year.apply(lambda x: slope * x + intercept)
+
+    # Create first line of best fit
+    
 
     # Create second line of best fit
 
