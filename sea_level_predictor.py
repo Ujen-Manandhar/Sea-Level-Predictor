@@ -10,6 +10,11 @@ def draw_plot():
     # Create scatter plot
     plt.scatter(df.Year, df['CSIRO Adjusted Sea Level'])
 
+    # regression 
+    model= linregress(x=df.Year, y=df['CSIRO Adjusted Sea Level'])
+    slope = model.slope
+    intercept= model.intercept
+    
     # Create first line of best fit
 
 
